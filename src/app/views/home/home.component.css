@@ -1,0 +1,15 @@
+ul{
+    position: absolute;
+    width: fit-content;
+    text-align: start;
+    align-self: center;
+    left: 50%;
+}
+h1{
+    color: gray;
+}
+div{
+    position: fixed;
+    top: 40%;
+    align-content: center;
+}

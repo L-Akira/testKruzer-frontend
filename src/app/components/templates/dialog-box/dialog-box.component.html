@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Validação</h1>
+<div mat-dialog-content>
+  <p>Por favor insira a senha deste usuario para apaga-lo</p>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input matInput [(ngModel)]="response">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="response" cdkFocusInitial>Verificar</button>
+</div>

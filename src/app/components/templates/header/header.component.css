@@ -1,0 +1,32 @@
+.header{
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: lightgray;
+    
+}
+
+.logo{
+    width: 58px;
+    height: 50px;
+    margin-right: 5px;
+    border-radius: 7px;
+}
+.logo-container{
+    cursor: pointer;
+}
+button {
+    background-color: rgba(0, 0, 219, 0.979);
+    color: white;
+    border-radius: 5px;
+    border: 1px;
+    border-color: blue;
+    justify-content: center;
+    padding: 4px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+button span{
+    vertical-align: middle;
+}

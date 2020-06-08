@@ -1,0 +1,72 @@
+<mat-card>
+    <mat-card-title>Filtro:</mat-card-title>
+    <form>
+        <mat-form-field>
+            <mat-label>Nome ou sobrenome</mat-label>
+            <input matInput placeholder="José" [(ngModel)]="filter.name" name="name"/>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [textMask]="{mask: emailMask}" [(ngModel)]="filter.email" name="email" placeholder="tech@email.com"/>
+        </mat-form-field>   
+        
+        <mat-form-field>
+            <mat-label>Nascimento</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="filter.birthday" [max]="maxDate" name="birthday"/>
+            <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+            <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="getList()" > 
+            <span class="material-icons">
+                search
+                </span>
+            Buscar
+        </button>
+    </form>
+</mat-card>
+
+<p class="tip" [hidden]="hideTip">Sem usuarios :(<br>Psiu! Clique em "+ novo usuario" para encher isso,parceiro!</p>
+
+<button mat-raised-button color="warn" [hidden]="reload" (click)="reloadPage()" class="reload">Recarregar</button>
+<mat-list class="container" [hidden]="hiddenAll" dense>
+    <mat-list-item [hidden]="user.hidden" *ngFor="let user of list">
+        <h3 matLine class="mat-title border-0">ID:</h3>
+        <p matLine class="mat-body-1">{{user._id}}</p>
+        
+        <span matLine class="mat-h2">NOME:</span>
+        <p matLine class="mat-body-1">&nbsp;{{user.name}}&nbsp;{{user.lastName}}</p>
+        
+        <span matLine class="mat-h2">EMAIL:</span>
+        <p matLine class="mat-body-1">&nbsp;{{user.email}}</p>
+
+        <span matLine class="mat-h2">NASCIMENTO:</span>
+        <p matLine class="mat-body-1">&nbsp;{{user.birthday}}</p>
+
+        <span matLine class="mat-h2">MEMBRO DESDE:</span>
+        <p matLine class="mat-body-1">&nbsp;{{user.createdAt}}</p>
+
+        <button mat-stroked-button class="usage" [routerLink]="['/user/update',user._id]" color="primary">
+            <span class="material-icons">
+                create
+            </span>
+            Editar
+        </button>
+
+        <button mat-raised-button color="warn" class="usage" (click)="delete(user)">
+            <span class="material-icons">
+                delete_forever
+            </span>
+            Deletar
+        </button>
+        
+        <mat-divider></mat-divider>
+    </mat-list-item>
+    
+</mat-list>
+
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-pulse" [fullScreen] = "true">
+    <p style="color: white" > Carregando... </p>
+</ngx-spinner>

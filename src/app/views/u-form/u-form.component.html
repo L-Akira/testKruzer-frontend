@@ -1,0 +1,61 @@
+<mat-card class="mat-elevation-z3">
+    <mat-card-title>Cadastrar Usuario</mat-card-title>
+    <form>
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput placeholder="José" required [(ngModel)]="user.name" name="name"/>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Sobrenome</mat-label>
+            <input matInput placeholder="da Silva" required [(ngModel)]="user.lastName" name="lastName" required/>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <mat-icon matPrefix>email</mat-icon>
+            <input matInput [textMask]="{mask: emailMask}" [(ngModel)]="user.email" name="email" placeholder="tech@email.com" required/>
+        </mat-form-field>
+        
+        <button mat-raised-button [hidden]="!hideIt" (click)="changePassword()" color="primary">Alterar/Não alterar senha</button>
+
+        <mat-form-field [hidden]="hidePassword" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <mat-icon matPrefix>lock</mat-icon>
+            <input required [(ngModel)]="user.password" name="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+              <mat-label>Nascimento</mat-label>
+              <input placeholder="02/25/1994" matInput [matDatepicker]="picker" [(ngModel)]="user.birthday" [max]="maxDate" name="birthday"/>
+              <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+              <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+          </mat-form-field>
+    </form>
+
+    <button mat-raised-button [hidden]="!hideIt" (click)="updateUser()" color="warn">
+        <span class="material-icons">
+            update
+            </span>
+        Atualizar
+    </button>
+
+    <button mat-raised-button [hidden]="hideIt" (click)="createUser()" color="warn">
+        <span class="material-icons">
+            save
+            </span>
+        Salvar
+    </button>
+    <button mat-stroked-button color="warn" (click)="cancel()" > 
+        <span class="material-icons">
+            clear
+            </span>
+        Cancelar
+    </button>
+</mat-card>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "default" color = "#fff" type = "ball-pulse" [fullScreen] = "true">
+    <p style="color: white" > Carregando... </p>
+</ngx-spinner>

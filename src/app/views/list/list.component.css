@@ -1,0 +1,25 @@
+.usage{
+    margin: 8px;
+    justify-content: start;
+    text-align: start;
+    padding-left: 1px;
+}
+.container{
+    padding:70px; 
+    justify-self: center;
+}
+.reload{
+    position: absolute;
+    top: 50%;
+    left: 47%;
+}
+mat-form-field{
+    margin: 12px;
+    padding: 3px;
+}
+.tip{
+    color: gray;
+    position: fixed;
+    top: 50%;
+    left: 40%;
+}

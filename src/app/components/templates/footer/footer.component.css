@@ -1,0 +1,7 @@
+.footer{
+    background-color: lightgray;
+    color: grey;
+    justify-content: center;
+    bottom: 0;
+    position: fixed;
+}
