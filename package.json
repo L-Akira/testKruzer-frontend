@@ -27,7 +27,7 @@
     "@ng-bootstrap/ng-bootstrap": "^6.1.0",
     "angular2-text-mask": "^9.0.0",
     "bootstrap": "^4.4.0",
-    "moment": "^2.26.0",
+    "moment": "^2.27.0",
     "ngx-spinner": "^9.0.2",
     "rxjs": "~6.5.4",
     "text-mask-addons": "^3.8.0",
